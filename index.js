@@ -1,4 +1,5 @@
 const express = require('express')
+require('dotenv').config();
 const {
         MongoClient,
         ServerApiVersion,
@@ -15,10 +16,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-
-
-
-const uri = process.env.DATABASE_URL
+const uri = `mongodb+srv://protfolio:${process.env.PASS_DB}@cluster0.ytnqryr.mongodb.net/?appName=Cluster0`
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
